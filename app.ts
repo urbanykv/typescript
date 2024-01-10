@@ -1,58 +1,45 @@
-interface pessoaType {
-  nome: string,
-  idade: number,
-  profissao?: string
-};
+abstract class Account{
+  private name: string | undefined;
+  private accountNumber: number | undefined;
+  private balance: number = 0;
 
-const pessoa : pessoaType = {
-  nome: "Matheus",
-  idade: 21
-};
-
-const outraPessoa : pessoaType = {
-  nome:"Leandro",
-  idade: 50,
-  profissao: "Desenvolvedor"
-};
-
-const arrayPessoa : Array<pessoaType> = [ pessoa, outraPessoa ];
-
-const arrayString : string[] = [ 'Matheus', 'Leandro' ];
-
-
-const typeUser = {
-  admin: 'Seja bem vindo admin',
-  student: 'Você é um estudante',
-  viewer: 'Você pode visualizar'
-}
-
-function validateUser(user: string){
-  console.log(typeUser[user as keyof typeof typeUser]);
-}
-
-const Matheus = {
-  name: 'Matheus',
-  age: 25,
-  shownApresentation(){console.log(`Oi, meu nome é ${this.name}`)}
-}
-
-
-class Pessoa{
-  private name;
-  private age;
-
-  constructor(name: string, age: number){
+  constructor(name: string, accountNumber: number, balance: number){
     this.name = name;
-    this.age = age;
+    this.accountNumber = accountNumber;
+    this.balance = balance;
   }
 
-  showApresentation(){
-    console.log(`Oi, meu nome é ${this.name} e eu tenho ${this.age} anos!`);
-    
+  deposit = () => {vvvvvvvv
+    console.log("Você depositou.");
+  }
+
+  withdraw = () => {
+    console.log("Você sacou.");
+  }
+
+  getValue = () => {
+    console.log(this.balance);
   }
 }
 
+class UserAccount extends Account{
+  private doc_id: number | undefined;
 
-const p1 = new Pessoa("Matheus", 32);
+  constructor(name: string, accountNumber: number, balance: number, doc_id: number){
+    super(name, accountNumber, balance)
+    this.doc_id = doc_id;
+  }
+}
 
-p1.showApresentation();
+class CompanyAccount extends Account{
+  constructor(name: string, accountNumber: number, balance: number){
+    super(name, accountNumber, balance)
+  }
+
+  getLoan = () => {
+    console.log("Você pegou um empréstimo");
+  }
+}
+
+const userAccount = new UserAccount('Matheus', 150051, 151000 , 25);
+
