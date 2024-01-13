@@ -1,10 +1,19 @@
-import { UserAccount } from "./class/UserAccount";
 import { CompanyAccount } from "./class/CompanyAccount";
+import { OtherAccount } from "./class/OtherAccount";
+import { UserAccount } from "./class/UserAccount";
 
-const userAccount = new UserAccount('Matheus', 150051, 151000 , 25);
+const userAccount: UserAccount = new UserAccount('Matheus', 1515, 2500, 100);
 
-const itau: CompanyAccount = new CompanyAccount('Itaú', 1500, 200);
+const companyAccount: CompanyAccount = new CompanyAccount('Loja Tudo10', 1516, 25000);
 
-userAccount.setName('Leandro');
+const otherAccount: OtherAccount = new OtherAccount('Outra Conta', 1517, 100);
 
-console.log(userAccount);
+// Testes da class UserAccount
+userAccount.deposit(52);
+userAccount.getName();
+userAccount.
+userAccount.getValue();
+
+// Testes da class CompanyAccount
+
+// Testes da class OtherAccount
